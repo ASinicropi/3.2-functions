@@ -36,12 +36,21 @@ console.log(result);
 function isVowel(char){
     "use strict";
 
+  var areVowels = false;
   var Vowels = ['a', 'e', 'i', 'o', 'u'];
+
   for (var i = 0; i < Vowels.length; i++){
+    if(Vowels[i] == char){
+      areVowels = true;
+    }
   }
+
+  //console.log('areVowels', areVowels);
+  return areVowels;
 }
 
-console.log(Vowels);
+console.assert(isVowel('a') == true); // true
+console.assert(isVowel('b') == false); // false
 
 // ---------------------
 // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
@@ -49,45 +58,52 @@ console.log(Vowels);
 function rovarspraket(phrase){
     "use strict";
 
+    var newPhrase = '';
+    for(var i =0; i < phrase.length ; i++){
+      var char = phrase[i];
+      if(isVowel(char)){
+        newPhrase += char;
+      }else{
+        newPhrase += char + 'o' + char == '';
+      }
+    }
+    return newPhrase;
 }
-
 // ---------------------
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
-function sum (x, y, z){
+function sum (array){
     "use strict";
 
+      var result = 0;
+
+      for(var i=0; i < array.length; i++){
+        var number = array[i];
+        result += number;
+      }
+      return result;
 }
 
-var x = 2;
-var y = 4;
-var z = 6;
-var result = sum(x + y + z);
-console.log(sum);
-
-function multiply(x, y, z){
+function multiply(array){
     "use strict";
 
-}
+    var result = array[0];
 
-var x = 2;
-var y = 4;
-var z = 6;
-var result = multiply(x * y * z);
-console.log(multiply);
+    for(var i = 0; i < array.length; i++){
+      var number = array[i];
+      result *= number;
+    }
+    return result;
+}
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
-function reverse(hello){
+function reverse(string){
     "use strict";
 
-    var myReverse = "hello";
-    myReverse.split("").reverse().join("");
-    return myReverse;
+    return string.split('').reverse()join('');
 }
-
-console.log(reverse);
 
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
@@ -96,28 +112,44 @@ console.log(reverse);
 function findLongestWord(words){
     "use strict";
 
-    var myArray = ['apple', 'bananas', 'grape'];
     var myArray = 0;
-    for (var i = 0; i < myArray.length; i++) {
-    if (myArray.length < findLongestWords[i].length) { {
-        longest = longWords[i];
+    for (var i = 0; i < words.length; i++) {
+      var word = words[i];
+      if(word.length > myArray){
+        myArray = word.length
       }
     }
+    return myArray
 }
-console.log(findLongestWord);
-
+console.assert(findLongestWord(['a', 'the']) === 3);
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 // ---------------------
 function filterLongWords(words, i){
     "use strict";
+    var lingOfWords = [];
 
+    for(var i = 0; i < words.length; i++){
+      var word = words[i];
+      if(word.length > maxLength){
+        lingOfWords.push(word);
+      }
+    }
+
+
+    return lingOfWords;
 }
+var result = filterLongWords(['a', 'the', 'be'], 2);
+console.assert(result.length === 1);
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
+
+charFreq = ("ndkwlancnksla")
 function charFreq(string){
     "use strict";
+
+
 
 }
