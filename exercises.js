@@ -8,12 +8,10 @@ function max(number1, number2){
     // console.log(maxValue);
     return maxValue;
 }
-
 var number1 = 10;
 var number2 = 20;
 var result = max(1, 2);
 console.log(result);
-
 // ---------------------
 // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
 // ---------------------
@@ -23,13 +21,11 @@ function maxOfThree(number1, number2, number3){
     var maxThree = Math.max(number1, number2, number3);
     return maxThree;
 }
-
 var number1 = 10;
 var number2 = 20;
 var number3 = 30;
 var result = maxOfThree(1, 2, 3);
 console.log(result);
-
 // ---------------------
 // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
 // ---------------------
@@ -44,14 +40,11 @@ function isVowel(char){
       areVowels = true;
     }
   }
-
   //console.log('areVowels', areVowels);
   return areVowels;
 }
-
 console.assert(isVowel('a') == true); // true
 console.assert(isVowel('b') == false); // false
-
 // ---------------------
 // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
@@ -95,7 +88,6 @@ function multiply(array){
     }
     return result;
 }
-
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
@@ -104,11 +96,9 @@ function reverse(string){
 
     return string.split('').reverse()join('');
 }
-
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
 // ---------------------
-
 function findLongestWord(words){
     "use strict";
 
@@ -135,21 +125,30 @@ function filterLongWords(words, i){
         lingOfWords.push(word);
       }
     }
-
-
     return lingOfWords;
 }
 var result = filterLongWords(['a', 'the', 'be'], 2);
 console.assert(result.length === 1);
-
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
-
-charFreq = ("ndkwlancnksla")
 function charFreq(string){
     "use strict";
-
-
-
+    var splitString = string.split('');
+    var frequencyObject = {};
+    for (var x in splitString) {
+      var currentLetter = splitString[x];
+      if (splitString.hasOwnProperty(x)) {
+        if (!frequencyObject[currentLetter]) {
+          frequencyObject[currentLetter] = 0;
+      }
+      frequencyObject[currentLetter] += 1;
+    }
+  }
+  return frequencyObject;
 }
+var freq = charFreq("andatndadnnatn");
+console.assert(freq.n == 5);
+console.assert(freq.d == 3);
+console.assert(freq.t == 2);
+console.assert(freq.a == 4);
